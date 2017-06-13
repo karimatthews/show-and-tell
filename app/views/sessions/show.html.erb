@@ -21,3 +21,11 @@
 </p>
 
 <%= link_to 'Edit', edit_session_path(@session) %>
+
+<div>
+  <% @session.slots.each do |slot| %>
+    <div>
+      <%= link_to 'slot', edit_slot_path(slot)%>
+    </div>
+  <% end %>
+</div>

@@ -36,6 +36,11 @@
     <%= form.time_field :time, id: :session_time %>
   </div>
 
+  <div class="field">
+    <%= form.label :number_of_slots %>
+    <%= form.number_field :number_of_slots, id: :session_number_of_slots, min: 1, max: 20 %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

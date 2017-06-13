@@ -26,6 +26,8 @@ class SessionsController < ApplicationController
   def create
     @session = Session.new(session_params)
 
+    create_slots
+
     respond_to do |format|
       if @session.save
         format.html { redirect_to @session, notice: 'Session was successfully created.' }
@@ -40,8 +42,13 @@ class SessionsController < ApplicationController
   # PATCH/PUT /sessions/1
   # PATCH/PUT /sessions/1.json
   def update
+
+
+
     respond_to do |format|
       if @session.update(session_params)
+
+        create_slots
         format.html { redirect_to @session, notice: 'Session was successfully updated.' }
         format.json { render :show, status: :ok, location: @session }
       else
@@ -67,9 +74,16 @@ class SessionsController < ApplicationController
       @session = Session.find(params[:id])
     end
 
+    def create_slots
+      number_of_slots = params.require(:session).permit(:number_of_slots)
+      number_of_slots[:number_of_slots].to_i.times do
+        @session.slots << Slot.new
+      end
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def session_params
-      allowed_params = params.require(:session).permit(:name, :company, :about, :date, :time)
+      allowed_params = params.require(:session).permit(:name, :company, :about, :date, :time, )
       allowed_params[:scheduled_at] = allowed_params[:date]  + " " + allowed_params[:time]
       allowed_params.except(:date, :time)
     end
