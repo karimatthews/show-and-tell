@@ -27,8 +27,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :scheduled_at %>
-    <%= form.datetime_select :scheduled_at, id: :session_scheduled_at %>
+    <%= form.label :date %>
+    <%= form.date_field :date, id: :session_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :time %>
+    <%= form.time_field :time, id: :session_time %>
   </div>
 
   <div class="actions">

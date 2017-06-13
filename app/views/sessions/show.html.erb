@@ -17,7 +17,7 @@
 
 <p>
   <strong>Scheduled at:</strong>
-  <%= @session.scheduled_at %>
+  <%= @session.scheduled_at.strftime('%A, %B %-d %Y %l:%M%P ') %>
 </p>
 
-<%= link_to 'Edit', edit_session_path(@session) %> 
+<%= link_to 'Edit', edit_session_path(@session) %>
