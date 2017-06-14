@@ -25,11 +25,27 @@
 
 
 <div style = "margin-top: 40px;">
+
   <% @session.slots.each do |slot| %>
     <%= link_to edit_slot_path(slot) do%>
-      <div class="slot empty-slot">
-        Select Slot
+      <% if slot.topic.present? %>
+      <div class="slot ">
+        <div style = "display: flex">
+          <h2> <%= slot.topic %> </h2>
+
+          <strong>Speaker: </strong>
+          <%= slot.speaker %>
+        </div>
+
+        <%= slot.description %>
+
       </div>
+      <% else %>
+        <div class="slot empty-slot">
+          Select Slot
+        </div>
+      <% end %>
     <% end %>
   <% end %>
+
 </div>

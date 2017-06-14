@@ -23,26 +23,26 @@ class SlotsController < ApplicationController
 
   # POST /slots
   # POST /slots.json
-  def create
-    @slot = Slot.new(slot_params)
-
-    respond_to do |format|
-      if @slot.save
-        format.html { redirect_to @slot, notice: 'Slot was successfully created.' }
-        format.json { render :show, status: :created, location: @slot }
-      else
-        format.html { render :new }
-        format.json { render json: @slot.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  # def create
+  #   @slot = Slot.new(slot_params)
+  #
+  #   respond_to do |format|
+  #     if @slot.save
+  #       format.html { redirect_to session_path(@slot.session), notice: 'Slot was successfully created.' }
+  #       format.json { render :show, status: :created, location: @slot }
+  #     else
+  #       format.html { render :new }
+  #       format.json { render json: @slot.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # PATCH/PUT /slots/1
   # PATCH/PUT /slots/1.json
   def update
     respond_to do |format|
       if @slot.update(slot_params)
-        format.html { redirect_to @slot, notice: 'Slot was successfully updated.' }
+        format.html { redirect_to session_path(@slot.session), notice: 'Slot was successfully updated.' }
         format.json { render :show, status: :ok, location: @slot }
       else
         format.html { render :edit }
