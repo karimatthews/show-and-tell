@@ -4,18 +4,17 @@
 
 <div style = "display: flex">
   <h1>
-    <%= @session.name %>
+    <%= @session.company %>: <%= @session.name %>
   </h1>
 
-  <div style="margin-top: auto; margin-bottom: auto; margin-right: 40px;">
+  <div style="margin-top: auto; margin-bottom: 22px; margin-right: 40px; font-weight: bold; font-size: 1.2em;">
     (<%= link_to 'Edit', edit_session_path(@session) %>)
   </div>
 
-  <div style="margin-top: auto; margin-bottom: auto;">
-    <strong>Scheduled at:</strong>
-    <%= @session.scheduled_at.strftime('%A, %B %-d %Y %l:%M%P ') %>
-  </div>
+</div>
 
+<div style="margin-top: auto; margin-bottom: auto; font-size: 1.2em;">
+  <%= @session.scheduled_at.strftime("%l:%M%P  %A, %B %-d %Y") %>
 </div>
 
 
@@ -30,10 +29,8 @@
     <%= link_to edit_slot_path(slot) do%>
       <% if slot.topic.present? %>
       <div class="slot ">
-        <div style = "display: flex">
+        <div style = "display: flex; font-size: 1.2em">
           <h2> <%= slot.topic %> </h2>
-
-          <strong>Speaker: </strong>
           <%= slot.speaker %>
         </div>
 

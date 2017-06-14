@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
 
     respond_to do |format|
       if @session.save
-        format.html { redirect_to @session, notice: 'Session was successfully created.' }
+        format.html { redirect_to @session, notice: 'Your session was successfully created.' }
         format.json { render :show, status: :created, location: @session }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class SessionsController < ApplicationController
       if @session.update(session_params)
 
         create_slots
-        format.html { redirect_to @session, notice: 'Session was successfully updated.' }
+        format.html { redirect_to @session, notice: 'Your session was successfully updated.' }
         format.json { render :show, status: :ok, location: @session }
       else
         format.html { render :edit }
@@ -61,7 +61,7 @@ class SessionsController < ApplicationController
   def destroy
     @session.destroy
     respond_to do |format|
-      format.html { redirect_to sessions_url, notice: 'Session was successfully destroyed.' }
+      format.html { redirect_to sessions_url, notice: 'Your session was successfully removed.' }
       format.json { head :no_content }
     end
   end
