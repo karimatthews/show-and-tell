@@ -1,31 +1,35 @@
+<!-- Show Session View -->
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @session.name %>
-</p>
+<div style = "display: flex">
+  <h1>
+    <%= @session.name %>
+  </h1>
 
-<p>
-  <strong>Company:</strong>
-  <%= @session.company %>
-</p>
+  <div style="margin-top: auto; margin-bottom: auto; margin-right: 40px;">
+    (<%= link_to 'Edit', edit_session_path(@session) %>)
+  </div>
 
-<p>
-  <strong>About:</strong>
-  <%= @session.about %>
-</p>
+  <div style="margin-top: auto; margin-bottom: auto;">
+    <strong>Scheduled at:</strong>
+    <%= @session.scheduled_at.strftime('%A, %B %-d %Y %l:%M%P ') %>
+  </div>
 
-<p>
-  <strong>Scheduled at:</strong>
-  <%= @session.scheduled_at.strftime('%A, %B %-d %Y %l:%M%P ') %>
-</p>
+</div>
 
-<%= link_to 'Edit', edit_session_path(@session) %>
 
 <div>
+  <%= @session.about %>
+</div>
+
+
+<div style = "margin-top: 40px;">
   <% @session.slots.each do |slot| %>
-    <div>
-      <%= link_to 'slot', edit_slot_path(slot)%>
-    </div>
+    <%= link_to edit_slot_path(slot) do%>
+      <div class="slot empty-slot">
+        Select Slot
+      </div>
+    <% end %>
   <% end %>
 </div>
