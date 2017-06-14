@@ -26,8 +26,9 @@ Pale Gold     #C0B283
  body {
    background-color: #FCFCFC;
    color: #373737;
-   margin: 40px;
-   margin-left: 60px;
+   margin: 0px;
+   display: flex;
+   flex-direction: column;
    font-family: verdana, arial, helvetica, sans-serif;
    font-size: 13px;
    line-height: 18px;
@@ -44,10 +45,6 @@ Pale Gold     #C0B283
    margin-top: 5px;
  }
 
- .field {
-   margin-bottom: 10px;
- }
-
  label {
    /*margin-right: 40px;*/
    display: block;
@@ -55,24 +52,6 @@ Pale Gold     #C0B283
 
  input {
    margin-top: 2px;
- }
-
- .slot {
-   border-radius: 5px;
-   background-color: #C0B283;
-   color: inherit;
-   width: 800px;
-   height: 100px;
-   margin-top: 20px;
-   padding: 20px;
-   /*border: 2px solid #C0B283;*/
-   box-shadow: 2px 2px 5px #413304;
- }
-
- .empty-slot {
-   text-align: center;
-   font-size: 2em;
-   line-height: 100px;
  }
 
  a {
@@ -89,6 +68,52 @@ Pale Gold     #C0B283
    }
  }
 
+img {
+  margin-top: 10px;
+  height: 30px;
+}
+
+ .field {
+   margin-bottom: 10px;
+ }
+
+ .slot {
+   border-radius: 5px;
+   background-color: #DBDBDB;
+   color: inherit;
+   width: 800px;
+   height: 100px;
+   margin-top: 20px;
+   padding: 20px;
+   /*border: 2px solid #C0B283;*/
+   box-shadow: 2px 2px 5px #413304;
+ }
+
+ .empty-slot {
+   text-align: center;
+   font-size: 2em;
+   line-height: 100px;
+ }
+
+ .form {
+   border-radius: 5px;
+   background-color: #DBDBDB;
+   color: inherit;
+   width: 400px;
+   height: 400px;
+   margin-top: 60px;
+   padding: 20px;
+   /*border: 2px solid #C0B283;*/
+   box-shadow: 2px 2px 5px #413304;
+ }
+
+ #topbar {
+   width: 100vw;
+   height: 50px;
+   background-color: #9A8C5D;
+   box-shadow: 2px 2px 5px #373737;
+   color: #FCFCFC;
+ }
 
 
 
