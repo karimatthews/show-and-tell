@@ -43,8 +43,6 @@ class SessionsController < ApplicationController
   # PATCH/PUT /sessions/1.json
   def update
 
-
-
     respond_to do |format|
       if @session.update(session_params)
 

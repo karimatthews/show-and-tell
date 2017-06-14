@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name, id: :session_name %>
+    <%= form.text_field :name, id: :session_name, :required => true%>
   </div>
 
   <div class="field">
@@ -28,18 +28,21 @@
 
   <div class="field">
     <%= form.label :date %>
-    <%= form.date_field :date, id: :session_date %>
+    <%= form.date_field :date, id: :session_date, value: Date.today %>
   </div>
 
   <div class="field">
     <%= form.label :time %>
-    <%= form.time_field :time, id: :session_time %>
+    <%= form.time_field :time, id: :session_time, value: "12:00"%>
   </div>
 
-  <div class="field">
-    <%= form.label :number_of_slots %>
-    <%= form.number_field :number_of_slots, id: :session_number_of_slots, min: 1, max: 20 %>
-  </div>
+
+  <% if @session.id.nil? %>
+    <div class="field">
+      <%= form.label :number_of_slots %>
+      <%= form.number_field :number_of_slots, id: :session_number_of_slots, value: 6, min: 1, max: 20 %>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= form.submit %>
