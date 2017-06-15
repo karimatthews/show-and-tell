@@ -20,7 +20,7 @@
         <td><%= session.company %></td>
         <td><%= session.about %></td>
         <td><%= session.scheduled_at %></td>
-        <td><%= link_to 'Show', session %></td>
+        <td><%= link_to 'Show', "/sessions/#{session.unique_hash}" %></td>
         <td><%= link_to 'Edit', edit_session_path(session) %></td>
         <td><%= link_to 'Destroy', session, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

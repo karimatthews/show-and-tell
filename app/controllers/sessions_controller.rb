@@ -48,11 +48,11 @@ class SessionsController < ApplicationController
       if @session.update(session_params)
 
         create_slots
-        format.html { redirect_to @session, notice: 'Your session was successfully updated.' }
-        format.json { render :show, status: :ok, location: @session }
+        format.html { redirect_to "/sessions/#{@session.unique_hash}", notice: 'Your session was successfully updated.' }
+        # format.json { render :show, status: :ok, location: @session }
       else
         format.html { render :edit }
-        format.json { render json: @session.errors, status: :unprocessable_entity }
+        # format.json { render json: @session.errors, status: :unprocessable_entity }
       end
     end
   end

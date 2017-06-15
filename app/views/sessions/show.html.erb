@@ -4,7 +4,10 @@
 
 <div style = "display: flex">
   <h1>
-    <%= @session.company %>: <%= @session.name %>
+    <% if @session.company.present? %>
+      <%= @session.company %>:
+    <% end %>
+    <%= @session.name %>
   </h1>
 
   <div style="margin-top: auto; margin-bottom: 22px; margin-right: 40px; font-weight: bold; font-size: 1.2em;">
