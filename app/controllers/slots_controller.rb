@@ -42,7 +42,7 @@ class SlotsController < ApplicationController
   def update
     respond_to do |format|
       if @slot.update(slot_params)
-        format.html { redirect_to session_path(@slot.session), notice: 'Slot was successfully updated.' }
+        format.html { redirect_to "/sessions/#{@slot.session.unique_hash}", notice: 'Slot was successfully updated.' }
         format.json { render :show, status: :ok, location: @slot }
       else
         format.html { render :edit }
@@ -53,13 +53,13 @@ class SlotsController < ApplicationController
 
   # DELETE /slots/1
   # DELETE /slots/1.json
-  def destroy
-    @slot.destroy
-    respond_to do |format|
-      format.html { redirect_to slots_url, notice: 'Slot was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+  # def destroy
+  #   @slot.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to slots_url, notice: 'Slot was successfully destroyed.' }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

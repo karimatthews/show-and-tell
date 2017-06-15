@@ -35,7 +35,7 @@ Pale Gold     #C0B283
  }
 
  h1 {
-   margin-right: 90px;
+   margin-right: 0px;
    font-size: 4em;
  }
 
@@ -98,9 +98,12 @@ button {
    border-radius: 5px;
    background-color: #DBDBDB;
    color: inherit;
-   width: 800px;
+   width: 800px;;
    height: 100px;
+   margin: 0px;
    margin-top: 20px;
+   margin-right: auto;
+   margin-left: auto;
    padding: 20px;
    /*border: 2px solid #C0B283;*/
    box-shadow: 2px 2px 5px #413304;
