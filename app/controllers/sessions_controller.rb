@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_action :set_session, only: [:show, :edit, :update, :destroy]
+  before_action :set_session, only: [:edit, :update, :destroy]
 
   # GET /sessions
   # GET /sessions.json
@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
   # GET /sessions/1
   # GET /sessions/1.json
   def show
+    @session = Session.find_by(unique_hash: params[:unique_hash])
   end
 
   # GET /sessions/new
@@ -30,11 +31,11 @@ class SessionsController < ApplicationController
 
     respond_to do |format|
       if @session.save
-        format.html { redirect_to @session, notice: 'Your session was successfully created.' }
-        format.json { render :show, status: :created, location: @session }
+        format.html { redirect_to "/sessions/#{@session.unique_hash}", notice: 'Your session was successfully created.' }
+        # format.json { render :show, status: :created, location: @session }
       else
         format.html { render :new }
-        format.json { render json: @session.errors, status: :unprocessable_entity }
+        # format.json { render json: @session.errors, status: :unprocessable_entity }
       end
     end
   end
