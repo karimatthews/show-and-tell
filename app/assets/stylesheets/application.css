@@ -69,11 +69,12 @@ Pale Gold     #C0B283
  }
 
 img {
-  margin-top: 10px;
+  margin-top: 0px;
   height: 30px;
 }
 
-button {
+.create {
+  cursor: pointer;
   font-size: 2em;
   padding: 20px;
   width: fit-content;
@@ -136,8 +137,32 @@ button {
  }
 
 
+  #share-url {
+    padding: 10px;
+    padding-bottom: 5px;
+    width: fit-content;
+    display: flex;
+    margin-bottom: 40px;
+    /*background-color: #E7D9AA;*/
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px #9D9D9D
+  }
 
+  #url {
+    margin-left: 20px;
+    margin-bottom: auto;
+    margin-top: auto;
+    font-size: 1.3em;
+    color: #9D9D9D;
+  }
 
+  #remove {
+    margin-bottom: auto;
+    margin-top: auto;
+    margin-left: 20px;
+    font-size: 1.3em;
+    color: #848484;
+  }
 
  /* Given styles below*/
 

@@ -2,13 +2,8 @@
 
 <p id="notice"><%= notice %></p>
 
-<a href= "/sessions/#{@session.unique_hash}">
-  <div style = "margin-bottom: 0px;">
-    Share Link:
-    <%= "/sessions/#{@session.unique_hash}" %>
-  </div>
-</a>
 
+<!-- Show name and edit link -->
 <div style = "display: flex">
   <h1>
     <% if @session.company.present? %>
@@ -23,9 +18,29 @@
 
 </div>
 
+<!-- Copy link to share with colleagues  -->
+
+<div id = 'share-url'>
+
+  <div onclick="CopyClipboard();">
+    <%= image_tag 'clipboard.svg', alt:"Copy to Clipboard", title: "Copy to Clipboard"%>
+  </div>
+
+  <span id = 'url'>
+    <%= @url %>
+  </span>
+
+  <div id = 'remove' onclick = "removeDiv('share-url');">
+    X
+  </div>
+</div>
+
+
+<!-- Show date and start time  -->
 <div style="margin-top: auto; margin-bottom: auto; font-size: 1.2em;">
   <%= @session.scheduled_at.strftime("%l:%M%P  %A, %B %-d %Y") %>
 </div>
+
 
 
 <div style='margin-top: 20px;'>
@@ -56,3 +71,31 @@
   <% end %>
 
 </div>
+
+
+<script>
+
+  function CopyClipboard(){
+    // creating new textarea element and giveing it id 't'
+    let t = document.createElement('textarea')
+    t.id = 't'
+    // Optional step to make less noise in the page, if any!
+    t.style.height = 0
+    // You have to append it to your page somewhere, I chose <body>
+    document.body.appendChild(t)
+    // Copy whatever is in your div to our new textarea
+    t.value = document.getElementById('url').innerText
+    // Now copy whatever inside the textarea to clipboard
+    let selector = document.querySelector('#t')
+    selector.select()
+    document.execCommand('copy')
+    // Remove the textarea
+    document.body.removeChild(t)
+  }
+
+  function removeDiv(id){
+    document.getElementById('contents').removeChild(document.getElementById(id))
+  }
+
+
+</script>

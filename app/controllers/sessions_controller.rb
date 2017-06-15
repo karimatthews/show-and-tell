@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
   # GET /sessions/1.json
   def show
     @session = Session.find_by(unique_hash: params[:unique_hash])
+    @url = request.original_url 
   end
 
   # GET /sessions/new
