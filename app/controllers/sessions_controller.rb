@@ -1,17 +1,11 @@
 class SessionsController < ApplicationController
   before_action :set_session, only: [:edit, :update, :destroy]
 
-  # GET /sessions
-  # GET /sessions.json
-  def index
-    @sessions = Session.all
-  end
-
   # GET /sessions/1
   # GET /sessions/1.json
   def show
     @session = Session.find_by(unique_hash: params[:unique_hash])
-    @url = request.original_url 
+    @url = request.original_url
   end
 
   # GET /sessions/new
@@ -55,16 +49,6 @@ class SessionsController < ApplicationController
         format.html { render :edit }
         # format.json { render json: @session.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /sessions/1
-  # DELETE /sessions/1.json
-  def destroy
-    @session.destroy
-    respond_to do |format|
-      format.html { redirect_to sessions_url, notice: 'Your session was successfully removed.' }
-      format.json { head :no_content }
     end
   end
 

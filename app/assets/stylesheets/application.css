@@ -27,6 +27,7 @@ Pale Gold     #C0B283
    background-color: #FCFCFC;
    color: #373737;
    margin: 0px;
+   margin-bottom: 60px;
    display: flex;
    flex-direction: column;
    font-family: verdana, arial, helvetica, sans-serif;
@@ -162,6 +163,11 @@ img {
     margin-left: 20px;
     font-size: 1.3em;
     color: #848484;
+    cursor: pointer;
+  }
+
+  #copy {
+    cursor: pointer;
   }
 
  /* Given styles below*/

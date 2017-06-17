@@ -1,41 +1,10 @@
 class SlotsController < ApplicationController
-  before_action :set_slot, only: [:show, :edit, :update, :destroy]
-
-  # GET /slots
-  # GET /slots.json
-  def index
-    @slots = Slot.all
-  end
-
-  # GET /slots/1
-  # GET /slots/1.json
-  def show
-  end
-
-  # GET /slots/new
-  def new
-    @slot = Slot.new
-  end
+  before_action :set_slot, only: [:edit, :update]
 
   # GET /slots/1/edit
   def edit
   end
 
-  # POST /slots
-  # POST /slots.json
-  # def create
-  #   @slot = Slot.new(slot_params)
-  #
-  #   respond_to do |format|
-  #     if @slot.save
-  #       format.html { redirect_to session_path(@slot.session), notice: 'Slot was successfully created.' }
-  #       format.json { render :show, status: :created, location: @slot }
-  #     else
-  #       format.html { render :new }
-  #       format.json { render json: @slot.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
 
   # PATCH/PUT /slots/1
   # PATCH/PUT /slots/1.json
@@ -51,15 +20,6 @@ class SlotsController < ApplicationController
     end
   end
 
-  # DELETE /slots/1
-  # DELETE /slots/1.json
-  # def destroy
-  #   @slot.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to slots_url, notice: 'Slot was successfully destroyed.' }
-  #     format.json { head :no_content }
-  #   end
-  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
