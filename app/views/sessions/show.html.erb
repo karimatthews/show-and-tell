@@ -50,21 +50,33 @@
 
 <div style = "margin-top: 40px; ">
 
-  <% @session.slots.each do |slot| %>
+  <% @session.slots.each_with_index do |slot,index| %>
     <%= link_to edit_slot_path(slot) do%>
       <% if slot.topic.present? %>
-      <div class="slot">
-        <div style = "display: flex; font-size: 1.2em">
-          <h2> <%= slot.topic %> </h2>
-          <%= slot.speaker %>
+      <div style = "display: flex;">
+        <div class='time'>
+          <!-- if first slot show start time else show last time + length time slot number -->
+          <% time = @session.scheduled_at + @session.length_of_slots * index * 60%>
+          <%= time.strftime("%l:%M%P") %>
         </div>
-
-        <%= slot.description %>
-
+        <div class="slot">
+          <div style = "display: flex; font-size: 1.2em">
+            <h2> <%= slot.topic %> </h2>
+            <%= slot.speaker %>
+          </div>
+          <%= slot.description %>
+        </div>
       </div>
       <% else %>
-        <div class="slot empty-slot">
-          Select Slot
+        <div style = "display: flex;">
+          <div class='time'>
+            <!-- if first slot show start time else show last time + length time slot number -->
+            <% time = @session.scheduled_at + @session.length_of_slots * index * 60%>
+            <%= time.strftime("%l:%M%P") %>
+          </div>
+          <div class="slot empty-slot">
+            Select Slot
+          </div>
         </div>
       <% end %>
     <% end %>
