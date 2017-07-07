@@ -1,24 +1,11 @@
-# README
+# FastTalk
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+FastTalk is a Rails app for scheduling Lightning talks / Show and Tells. Each Session has a unique url, which is shared around the company. Speakers can then select a time slot and add details for their talk. 
 
-Things you may want to cover:
+## Usage
 
-* Ruby version
+FastTalk will soon be deployed through Heroku. 
 
-* System dependencies
+## Technology
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ParkPups uses vanilla Javascript on the frontend, and Rails with Postgres on the backend.
